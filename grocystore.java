@@ -1,11 +1,4 @@
-// Write a program to simulate a bar code reader in a grocery store.  You will use two files: 
-// • The first file "Food.txt", contains several lines, each of which contains the name of a food item 
-// (String), its bar code (int), its price (double), and a string (either "T" or "F") indicating whether or not 
-// the item is taxable (boolean).  The tax rate should be set to 8% at this time (use a constant).   Notice that 
-// this file is sorted alphabetically by the name of each product. 
-// • A second file contains integers, "Order.txt".  Each of these integers represents a bar code for some item 
-// sold in the store.  The bar codes are separated by a code of zero which is the end of one customer.  Read 
-// each int of this file using the nextInt method the Scanner class (or use EasyReader). 
+
 package Casestudy;
 
 import java.io.File;
