@@ -1,0 +1,31 @@
+// Abstract base class
+abstract class Shape {
+    // Private constructor to prevent instantiation from outside the package
+    Shape() {}
+// Abstract method to be implemented by subclasses
+    abstract void draw();}
+// Final subclasses
+final class Circle extends Shape {
+    Circle() {} // Package-private constructor
+    @Override
+    void draw() {
+        System.out.println("Drawing Circle");   }}
+final class Square extends Shape {
+    Square() {} // Package-private constructor
+    @Override
+    void draw() {
+        System.out.println("Drawing Square");   }}
+
+// Non-final subclass outside the package (not allowed)
+// class Triangle extends Shape {
+//     @Override
+//     void draw() {
+//         System.out.println("Drawing Triangle");
+//     }
+// }
+public class SealedClassExample {
+    public static void main(String[] args) {
+        Shape circle = new Circle();
+        circle.draw();
+        Shape square = new Square();
+        square.draw(); }}
