@@ -1,0 +1,65 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+
+public class Solution {
+   public static void main(String[] args) throws IOException {
+    List<List<Integer>> arr = new ArrayList<>();
+
+    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    try {
+    for (int i = 0; i < 6; i++) {
+
+        String[] arrRowTempItems = bufferedReader.readLine().split(" ");
+
+        List<Integer> arrRowItems = new ArrayList<>();
+
+        for (int j = 0; j < 6; j++) {
+            arrRowItems.add(Integer.parseInt(arrRowTempItems[j]));
+        }
+            arr.add(arrRowItems);
+
+
+        }
+
+    //Max Number can be negative
+    //So we have to initialize it with "Integer.MIN_VALUE"
+    int biggestNum = Integer.MIN_VALUE;
+
+    //Outer Array
+    for (int i = 0; i < 4; i++) {
+        //Inner Array
+        for (int j = 0; j < 4; j++) {
+            int sumOfTopRow = arr.get(i).get(j)+arr.get(i).get(j+1)+arr.get(i).get(j+2);
+            int extractedMiddleRow = arr.get(i+1).get(j+1);
+            int sumOfBottomRow = arr.get(i+2).get(j)+arr.get(i+2).get(j+1)+arr.get(i+2).get(j+2);
+
+            //Answer: 
+            int sumOfHourGlass = sumOfTopRow+extractedMiddleRow+sumOfBottomRow;
+            //Update biggestNum variable by condition
+            if (sumOfHourGlass>biggestNum) {
+                biggestNum = sumOfHourGlass;
+            }
+        }
+    }
+    //Displaying the BiggestNum
+    System.out.println(biggestNum);
+
+
+    }catch (NumberFormatException e) {
+            System.err.println("Make sure you input integers are separated by one white space: "+e.getMessage());
+        }catch (IndexOutOfBoundsException e) {
+            System.err.println("Make sure you input has 6 separated digits: "+e.getMessage());
+        }
+
+
+
+    bufferedReader.close();
+}
+}
